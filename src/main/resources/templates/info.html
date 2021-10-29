@@ -1,0 +1,474 @@
+<!--个人信息页-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>个人简介</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+
+    <link rel="shortcut icon" th:href="@{/images/wd-logo.png}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/animate.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/line-awesome.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/line-awesome-font-awesome.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/font-awesome.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/jquery.mCustomScrollbar.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/lib/slick/slick.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/lib/slick/slick-theme.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/responsive.css}">
+</head>
+
+<body>
+
+<div class="wrapper">
+
+    <header th:insert="~{commmon/topbar::topbar}"></header>
+
+    <section class="cover-sec">
+
+        <img src="/images/resources/cover-img5.png" alt="">
+
+        <!--			<a href="#" title=""><i class="fa fa-camera"></i></a>-->
+    </section>
+
+    <main>
+        <div class="main-section">
+            <div class="container">
+                <div class="main-section-data">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="main-left-sidebar">
+                                <div class="user_profile">
+                                    <div class="user-pro-img">
+                                        <img src="/images/resources/user-pro-img.png" alt="">
+                                        <!--											<a href="#" title=""><i class="fa fa-camera"></i></a>-->
+                                    </div><!--user-pro-img end-->
+                                    <div class="user_pro_status">
+                                        <ul class="flw-hr">
+                                            <li><a th:href="@{/blog/toBlogList}" title="" class="flww">博客</a></li>
+                                            <li><a th:href="@{/book/toBookList}" title="" class="hre">书籍</a></li>
+                                        </ul>
+                                    </div><!--user_pro_status end-->
+                                    <ul class="social_links">
+                                        <li><a href="http://noisnotyes.com" title=""><i class="la la-globe"></i>本站</a>
+                                        </li>
+                                        <li><a href="https://weibo.com/6584996933" title=""><i class="la la-globe"></i>微博</a>
+                                        </li>
+<!--                                        <li><a href="#" title=""><i class="la la-globe"></i>QQ邮箱</a></li>-->
+                                        <li><a href="https://space.bilibili.com/345719393" title=""><i
+                                                class="la la-globe"></i>Bilibili</a></li>
+<!--                                        <li><a href="#" title=""><i class="la la-globe"></i>微信公众号</a></li>-->
+                                        <li><a href="https://gitee.com/cosmoswei" title=""><i class="la la-globe"></i>Gitee</a>
+                                        </li>
+                                        <li><a href="https://github.com/CosmosWei" title=""><i class="la la-globe"></i>GitHub</a>
+                                        </li>
+                                        <li><a href="https://hub.docker.com/u/cosmoswei" title=""><i
+                                                class="la la-globe"></i>Docker Hup</a></li>
+                                    </ul>
+                                </div><!--user_profile end-->
+                                <div class="suggestions full-width">
+                                    <div class="sd-title">
+                                        <h3>推荐博主</h3>
+                                    </div><!--sd-title end-->
+                                    <div class="suggestions-list">
+                                        <div class="suggestion-usd">
+                                            <img src="/images/resources/s1.png" alt="">
+                                            <div class="sgt-text">
+                                                <h4><a href="https://coolshell.cn/">酷壳</a></h4>
+                                                <span>GoLang 博客</span>
+                                            </div>
+                                        </div>
+                                        <div class="suggestion-usd">
+                                            <img src="/images/resources/s2.png" alt="">
+                                            <div class="sgt-text">
+                                                <h4><a href="http://blog.codinglabs.org/">CodingLabs</a></h4>
+                                                <span>数据库博客</span>
+                                            </div>
+                                        </div>
+                                        <div class="suggestion-usd">
+                                            <img src="/images/resources/s3.png" alt="">
+                                            <div class="sgt-text">
+                                                <h4><a href="https://www.ivdone.top/">清水寺</a></h4>
+                                                <span>底层博客</span>
+                                            </div>
+                                        </div>
+                                        <div class="suggestion-usd">
+                                            <img src="/images/resources/s17.png" alt="">
+                                            <div class="sgt-text">
+                                                <h4><a href="http://www.pengzhihui.com/">稚晖</a></h4>
+                                                <span>人工智能博主</span>
+                                            </div>
+                                        </div>
+                                        <div class="suggestion-usd">
+                                            <img src="/images/resources/s18.png" alt="">
+                                            <div class="sgt-text">
+                                                <h4><a href="https://www.captainai.net/xmg/">床长人工智能教程</a></h4>
+                                                <span>人工智能博主</span>
+                                            </div>
+                                        </div>
+                                    </div><!--suggestions-list end-->
+                                </div><!--suggestions end-->
+                            </div><!--main-left-sidebar end-->
+                        </div><!--左-->
+                        <div class="col-lg-6">
+                            <div class="main-ws-sec">
+
+                                <div class="user-tab-sec">
+                                    <h3>宇宙伟</h3>
+                                    <div class="star-descp">
+                                        <span>个人开发者</span>
+                                        <ul>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star-half-o"></i></li>
+                                        </ul>
+                                    </div><!--star-descp end-->
+                                    <div class="tab-feed st2">
+                                        <ul>
+                                            <li data-tab="feed-dd" class="active">
+                                                <a href="#" title="">
+                                                    <img src="/images/ic1.png" alt="">
+                                                    <span>信息</span>
+                                                </a>
+                                            </li>
+                                            <li data-tab="info-dd">
+                                                <a href="#" title="">
+                                                    <img src="/images/ic2.png" alt="">
+                                                    <span>博客</span>
+                                                </a>
+                                            </li>
+                                            <li data-tab="saved-jobs">
+                                                <a href="#" title="">
+                                                    <img src="/images/ic4.png" alt="">
+                                                    <span>论点</span>
+                                                </a>
+                                            </li>
+                                            <li data-tab="my-bids">
+                                                <a href="#" title="">
+                                                    <img src="/images/ic5.png" alt="">
+                                                    <span>书籍</span>
+                                                </a>
+                                            </li>
+                                            <li data-tab="payment-dd">
+                                                <a href="#" title="">
+                                                    <img src="/images/ic6.png" alt="">
+                                                    <span>赞赏</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div><!-- tab-feed end-->
+                                </div><!--顶部-->
+                                <div class="product-feed-tab current" id="feed-dd">
+
+                                    <div class="posts-section">
+                                        <div class="post-bar">
+                                            <div class="post_topbar">
+                                                <div class="usy-dt">
+                                                    <img src="/images/resources/us-pic.png" alt="">
+                                                    <div class="usy-name">
+                                                        <h3>大学课程</h3>
+                                                    </div>
+                                                </div>
+                                                <!--												<div class="ed-opts">-->
+                                                <!--													<a href="#" title="" class="ed-opts-open"><i class="la la-ellipsis-v"></i></a>-->
+                                                <!--													<ul class="ed-options">-->
+                                                <!--														<li><a href="#" title="">Edit Post</a></li>-->
+                                                <!--														<li><a href="#" title="">Unsaved</a></li>-->
+                                                <!--														<li><a href="#" title="">Unbid</a></li>-->
+                                                <!--														<li><a href="#" title="">Close</a></li>-->
+                                                <!--														<li><a href="#" title="">Hide</a></li>-->
+                                                <!--													</ul>-->
+                                                <!--												</div>-->
+                                            </div>
+                                            <div class="epi-sec">
+                                                <ul class="descp">
+                                                    <li><img src="/images/icon8.png" alt=""><span>湖南工业大学</span></li>
+                                                    <li><img src="/images/icon9.png" alt=""><span>株洲</span></li>
+
+                                                </ul>
+                                                <ul class="bk-links">
+                                                    <li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
+                                                    <li><a href="#" title=""><i class="la la-envelope"></i></a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="job_descp">
+                                                <p>专业：信息计算与科学</p>
+                                                <p>数学类：数学分析，数值分析，高等代数，近世代数等主流数学课程。</p>
+                                                <p>算法类：数据结构，算法设计，运筹学，Lingo程序设计。</p>
+                                                <p>软件类：Java，Python，SSM，数据分析。</p>
+                                                <ul class="job-dt">
+                                                    <li><a href="#" title="">数学分析</a></li>
+                                                    <li><a href="#" title="">高等代数</a></li>
+                                                    <li><a href="#" title="">数据结构</a></li>
+                                                    <li><a href="#" title="">运筹学</a></li>
+                                                    <li><a href="#" title="">数据分析</a></li>
+                                                </ul>
+                                            </div>
+                                            <!--											<div class="job-status-bar">-->
+                                            <!--												<ul class="like-com">-->
+                                            <!--													<li>-->
+                                            <!--														<a href="#"><i class="la la-heart"></i> Like</a>-->
+                                            <!--														<img src="images/liked-img.png" alt="">-->
+                                            <!--														<span>25</span>-->
+                                            <!--													</li>-->
+                                            <!--													<li><a href="#" title="" class="com"><img src="images/com.png" alt=""> 评论 15</a></li>-->
+                                            <!--												</ul>-->
+                                            <!--												<a><i class="la la-eye"></i>浏览 1024</a>-->
+                                            <!--											</div>-->
+                                        </div><!--post-bar end  第一栏-->
+                                        <div class="post-bar">
+                                            <div class="post_topbar">
+                                                <div class="usy-dt">
+                                                    <img src="/images/resources/us-pic.png" alt="">
+                                                    <div class="usy-name">
+                                                        <h3>专业技能</h3>
+                                                    </div>
+                                                </div>
+                                                <!--												<div class="ed-opts">-->
+                                                <!--													<a href="#" title="" class="ed-opts-open"><i class="la la-ellipsis-v"></i></a>-->
+                                                <!--													<ul class="ed-options">-->
+                                                <!--														<li><a href="#" title="">Edit Post</a></li>-->
+                                                <!--														<li><a href="#" title="">Unsaved</a></li>-->
+                                                <!--														<li><a href="#" title="">Unbid</a></li>-->
+                                                <!--														<li><a href="#" title="">Close</a></li>-->
+                                                <!--														<li><a href="#" title="">Hide</a></li>-->
+                                                <!--													</ul>-->
+                                                <!--												</div>-->
+                                            </div>
+                                            <div class="epi-sec">
+                                                <ul class="descp">
+                                                    <li><img src="/images/icon8.png" alt=""><span>哔哩哔哩</span></li>
+                                                    <li><img src="/images/icon9.png" alt=""><span>CSDN</span></li>
+                                                </ul>
+                                                <ul class="bk-links">
+                                                    <li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
+                                                    <li><a href="#" title=""><i class="la la-envelope"></i></a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="job_descp">
+                                                <p>熟悉 Java 语法，基础集合框架，多线程编程，并发编程；可转 GO。</p>
+                                                <p>对 JVM 原理有初步的理解，包括内存模型、垃圾回收机制。</p>
+                                                <p>熟悉使用 IDEA，Git；熟悉使用 Maven 项目构建工具。</p>
+                                                <p>熟练使用主流的关系型数据库，如 MySQL。</p>
+                                                <p>熟练 Redis，MongoDB，ClickHouse 等非关系型数据库的使用。</p>
+                                                <p>熟练 SSM，SpringBoot 等主流开源开发框架。</p>
+                                                <p>了解 Docker 虚拟化技术，并对 Kubernetes 有浓厚的学习兴趣</p>
+                                                <ul class="job-dt">
+                                                    <li><a href="#" title="">并发编程</a></li>
+                                                    <li><a href="#" title="">JVM</a></li>
+                                                    <li><a href="#" title="">Git</a></li>
+                                                    <li><a href="#" title="">MySQL</a></li>
+                                                    <li><a href="#" title="">Docker</a></li>
+                                                </ul>
+                                            </div>
+
+                                        </div><!--post-bar end  第二栏-->
+                                        <div class="post-bar">
+                                            <div class="post_topbar">
+                                                <div class="usy-dt">
+                                                    <img src="/images/resources/us-pic.png" alt="">
+                                                    <div class="usy-name">
+                                                        <h3>项目经历</h3>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="epi-sec">
+                                                <ul class="descp">
+                                                    <li><img src="/images/icon8.png" alt=""><span>GitHup</span></li>
+                                                    <li><img src="/images/icon9.png" alt=""><span>Gitee</span></li>
+
+                                                </ul>
+                                                <ul class="bk-links">
+                                                    <li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
+                                                    <li><a href="#" title=""><i class="la la-envelope"></i></a></li>
+
+                                                </ul>
+                                            </div>
+                                            <div class="job_descp">
+
+                                                <p>项目：话论</p>
+                                                <p>前端技术栈：HTML，CSS，JS，Ajax，Thymeleaf。</p>
+                                                <p>后端技术栈：SpringBoot，Mybatis，MySQL，Linux。</p>
+                                                <p>运维技术：阿里云，Linux，Nginx，Docker。</p>
+                                                <ul class="job-dt">
+                                                    <li><a href="#" title="">Thymeleaf</a></li>
+                                                    <li><a href="#" title="">SpringBoot</a></li>
+                                                    <li><a href="#" title="">Linux</a></li>
+                                                </ul>
+                                            </div>
+
+                                        </div><!--post-bar end  第三栏-->
+                                        <div class="post-bar">
+                                            <div class="post_topbar">
+                                                <div class="usy-dt">
+                                                    <img src="/images/resources/us-pic.png" alt="">
+                                                    <div class="usy-name">
+                                                        <h3>自我评价</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="epi-sec">
+                                                <ul class="descp">
+                                                    <li><img src="/images/icon9.png" alt=""><span>湖南郴州</span></li>
+                                                </ul>
+                                                <ul class="bk-links">
+                                                    <li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
+                                                    <li><a href="#" title=""><i class="la la-envelope"></i></a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="job_descp">
+                                                <p>乐观开朗，适应能力强，能接受加班和出差。</p>
+                                                <p>有良好的设计和编码品味，并且热爱写代码。</p>
+                                                <p>具备良好的沟通能力和高度的团队合作意识，能快速融入团队。</p>
+                                                <p>技术视野开阔，学习能力好，对业界新技术敏感，喜欢钻研。</p>
+                                                <p>热爱编程，开拓创新意识强，能保持不断进取的精神，有高度执行力。</p>
+                                                <ul class="job-dt">
+                                                    <li><a href="#" title="">简单</a></li>
+                                                    <li><a href="#" title="">高效</a></li>
+                                                    <li><a href="#" title="">抗压</a></li>
+                                                    <li><a href="#" title="">团队</a></li>
+                                                    <li><a href="#" title="">创新</a></li>
+                                                </ul>
+                                            </div>
+                                        </div><!--post-bar end  第四栏-->
+                                    </div><!--posts-section end-->
+
+                                </div><!--个人信息-->
+                                <div class="product-feed-tab" id="info-dd">
+                                    <div class="posts-section">
+                                        <div class="post-bar" th:each="indexBlog:${indexBlogList}">
+                                            <div class="post_topbar">
+                                                <div class="usy-dt">
+                                                    <div class="usy-name">
+                                                        <h3 th:text="${indexBlog.title}"></h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="epi-sec">
+                                                <ul class="descp">
+                                                    <li><img src="images/icon8.png" alt=""><span
+                                                            th:text="${indexBlog.author}"></span></li>
+                                                    <li><img src="images/icon9.png" alt=""><span
+                                                            th:text="${indexBlog.updateTime}"></span></li>
+                                                </ul>
+                                                <ul class="bk-links">
+                                                    <li><a th:href="@{'/blog/toBlog/'+${indexBlog.id}}"
+                                                           class="bid_now">详情</a></li>
+                                                </ul>
+                                            </div>
+                                        </div><!--post-bar end  博客-->
+                                    </div>
+                                </div><!--博客-->
+                                <div class="product-feed-tab" id="saved-jobs">
+                                    <div class="posts-section">
+                                        <div class="post-bar" th:each="indexDebate:${indexDebateList}">
+                                            <div class="post_topbar">
+                                                <div class="usy-dt">
+                                                    <div class="usy-name">
+                                                        <h3 th:text="${indexDebate.title}"></h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="epi-sec">
+                                                <ul class="descp">
+                                                    <li><img src="images/icon8.png" alt=""><span
+                                                            th:text="${indexDebate.author}"></span></li>
+
+                                                    <li><img src="images/icon9.png" alt=""><span
+                                                            th:text="${indexDebate.updateTime}"></span></li>
+                                                </ul>
+                                                <ul class="bk-links">
+                                                    <li><a th:href="@{'/debate/toDebate/'+${indexDebate.id}}"
+                                                           class="bid_now">详情</a></li>
+                                                </ul>
+                                            </div>
+                                        </div><!--post-bar end  论点-->
+                                    </div>
+                                </div><!--论点-->
+                                <div class="product-feed-tab" id="my-bids">
+                                    <div class="posts-section">
+                                        <div class="post-bar" th:each="indexBook:${indexBookList}">
+                                            <div class="post_topbar">
+                                                <div class="usy-dt">
+                                                    <div class="usy-name">
+                                                        <h3 th:text="${indexBook.title}"></h3>
+                                                        <span th:text="'ISBN:'+${indexBook.ISBN}"></span>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="epi-sec">
+                                                <ul class="descp">
+                                                    <li><img th:src="@{/images/icon8.png}" alt=""
+                                                             th:text="${indexBook.author}"></li>
+                                                    <li><img th:src="@{/images/icon9.png}" alt=""
+                                                             th:text="${indexBook.press}"></li>
+                                                </ul>
+                                                <ul class="bk-links">
+                                                    <li><a th:href="@{'/book/download/'+${indexBook.id}}" title=""
+                                                           class="bid_now">下载</a></li>
+                                                </ul>
+                                            </div>
+                                        </div><!--post-bar 书籍-->
+                                    </div>
+                                </div><!--书籍-->
+                                <div class="product-feed-tab" id="payment-dd">
+                                    <div class="billing-method">
+                                        <ul>
+                                            <li>
+                                                <h3>暂未开放</h3>
+                                                <a href="#" title=""></a>
+                                            </li>
+
+                                            <li>
+                                                <h3>总赞赏</h3>
+                                                <span>￥0.00</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div><!--赞赏页面-->
+
+                            </div><!--main-ws-sec end-->
+                        </div><!--中-->
+
+                        <div class="col-lg-3">
+                            <div class="right-sidebar">
+                                <div class="message-btn">
+                                    <a th:href="@{/info/download/resume}" title=""><i
+                                            class="fa fa-download"></i>下载简历</a>
+                                </div>
+                            </div>
+                            <div class="right-sidebar">
+
+                                <div class="message-btn">
+                                    <a th:href="@{/info/download/src}" title=""><i class="fa fa-download"></i>下载源码</a>
+                                </div>
+                            </div><!--right-sidebar end-->
+                        </div><!--右-->
+                    </div>
+                </div><!-- main-section-data end-->
+            </div>
+        </div>
+    </main>
+
+    <footer th:insert="~{commmon/footer::footer}"></footer>
+
+
+</div><!--theme-layout end-->
+
+
+<script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/popper.js}"></script>
+<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/jquery.mCustomScrollbar.js}"></script>
+<script type="text/javascript" th:src="@{/lib/slick/slick.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/scrollbar.js}"></script>
+<script type="text/javascript" th:src="@{/js/script.js}"></script>
+</body>
+</html>

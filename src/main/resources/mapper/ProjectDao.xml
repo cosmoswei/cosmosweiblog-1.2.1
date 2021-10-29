@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wei.cosmosweiblog.mapper.ProjectDao">
+
+    <resultMap type="com.wei.cosmosweiblog.pojo.Project" id="ProjectMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="author" column="author" jdbcType="VARCHAR"/>
+        <result property="usedTech" column="used_tech" jdbcType="VARCHAR"/>
+        <result property="updateTime" column="update_time" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--根据id查询单个文章-->
+    <select id="getProjectById" resultMap="ProjectMap">
+        select
+            id, name, author, used_tech,update_time
+        from Blog.blog_project
+        where id = #{id}
+    </select>
+
+    <select id="searchProjectByName" resultMap="ProjectMap">
+        select id, name, author, used_tech,update_time
+        from Blog.blog_project
+        where title like
+              concat("%", #{name}, "%")
+    </select>
+
+
+    <!--查询所有文章-->
+    <select id="queryAllProject" resultMap="ProjectMap">
+        select
+        id, name, author, used_tech,update_time
+        from Blog.blog_project
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="name != null and name != ''">
+                and name = #{name}
+            </if>
+            <if test="author != null and author != ''">
+                and author = #{author}
+            </if>
+            <if test="used_tech != null and used_tech != ''">
+                and used_tech = #{used_tech}
+            </if>
+            <if test="update_time != null and update_time != ''">
+                and update_time = #{update_time}
+            </if>
+        </where>
+    </select>
+
+    <!--添加文章-->
+    <insert id="addProject" keyProperty="id" useGeneratedKeys="true">
+        insert into Blog.blog_project(name, author, used_tech)
+        values (#{name}, #{title}, #{used_tech})
+    </insert>
+
+
+    <!--通过id删除文章-->
+    <delete id="deleteProjectById">
+        delete from Blog.blog_project where id = #{id}
+    </delete>
+
+</mapper>

@@ -1,0 +1,229 @@
+<!--公司页-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>社区</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+
+    <link rel="shortcut icon" th:href="@{/images/wd-logo.png}">
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/animate.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/line-awesome.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/line-awesome-font-awesome.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/font-awesome.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/jquery.mCustomScrollbar.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/lib/slick/slick.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/lib/slick/slick-theme.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/responsive.css}">
+</head>
+
+
+<body>
+
+
+<div class="wrapper">
+
+
+    <header th:insert="~{commmon/topbar::topbar}"></header>
+
+    <section class="companies-info">
+        <div class="container">
+            <div class="company-title">
+                <h3>全部社区</h3>
+            </div><!--company-title end-->
+            <div class="companies-list">
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="company_profile_info">
+                            <div class="company-up-info">
+                                <img src="images/resources/宇宙伟.PNG" alt="">
+                                <h3>宇宙伟</h3>
+                                <h4>Establish Feb, 2004</h4>
+                                <h4></h4>
+                                <ul>
+                                    <li><a href="http://noisnotyes.com/" title="" class="follow">GO</a></li>
+                                    <li><a href="#" title="" class="message-us"><i class="fa fa-envelope"></i></a></li>
+                                </ul>
+                            </div>
+                            <a href="#" title="" class="view-more-pro">View Profile</a>
+                        </div><!--company_profile_info end-->
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="company_profile_info">
+                            <div class="company-up-info">
+                                <img src="images/resources/博客.png" alt="">
+                                <h3>酷壳-CoolShel</h3>
+                                <h4>Establish Feb, 2004</h4>
+                                <h4></h4>
+                                <ul>
+                                    <li><a href="https://coolshell.cn/" title="" class="follow">GO</a></li>
+                                    <li><a href="#" title="" class="message-us"><i class="fa fa-envelope"></i></a></li>
+                                </ul>
+                            </div>
+                            <a href="#" title="" class="view-more-pro">View Profile</a>
+                        </div><!--company_profile_info end-->
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="company_profile_info">
+                            <div class="company-up-info">
+                                <img src="images/resources/博客.png" alt="">
+                                <h3>清水寺</h3>
+                                <h4>Establish Feb, 2004</h4>
+                                <ul>
+                                    <li><a href="https://www.ivdone.top/" title="" class="follow">GO</a></li>
+                                    <li><a href="#" title="" class="message-us"><i class="fa fa-envelope"></i></a></li>
+                                </ul>
+                            </div>
+                            <a href="#" title="" class="view-more-pro">View Profile</a>
+                        </div><!--company_profile_info end-->
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="company_profile_info">
+                            <div class="company-up-info">
+                                <img src="images/resources/博客.png" alt="">
+                                <h3>Coding labs</h3>
+                                <h4>Establish Feb, 2004</h4>
+                                <ul>
+                                    <li><a href="http://blog.codinglabs.org/" title="" class="follow">GO</a></li>
+                                    <li><a href="#" title="" class="message-us"><i class="fa fa-envelope"></i></a></li>
+                                </ul>
+                            </div>
+                            <a href="#" title="" class="view-more-pro">View Profile</a>
+                        </div><!--company_profile_info end-->
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="company_profile_info">
+                            <div class="company-up-info">
+                                <img src="images/resources/阿里云.png" alt="">
+                                <h3>云栖</h3>
+                                <h4>Establish Feb, 2004</h4>
+                                <ul>
+                                    <li><a href="https://developer.aliyun.com/" title="" class="follow">GO</a></li>
+                                    <li><a href="#" title="" class="message-us"><i class="fa fa-envelope"></i></a></li>
+                                </ul>
+                            </div>
+                            <a href="#" title="" class="view-more-pro">View Profile</a>
+                        </div><!--company_profile_info end-->
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="company_profile_info">
+                            <div class="company-up-info">
+                                <img src="images/resources/腾讯云.png" alt="">
+                                <h3>腾讯云社区</h3>
+                                <h4>Establish Feb, 2004</h4>
+                                <ul>
+                                    <li><a href="https://cloud.tencent.com/developer" title="" class="follow">GO</a></li>
+                                    <li><a href="#" title="" class="message-us"><i class="fa fa-envelope"></i></a></li>
+                                </ul>
+                            </div>
+                            <a href="#" title="" class="view-more-pro">View Profile</a>
+                        </div><!--company_profile_info end-->
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="company_profile_info">
+                            <div class="company-up-info">
+                                <img src="images/resources/csdn.png" alt="">
+                                <h3>CSDN</h3>
+                                <h4>Establish Feb, 2004</h4>
+                                <ul>
+                                    <li><a href="https://www.csdn.net/" title="" class="follow">GO</a></li>
+                                    <li><a href="#" title="" class="message-us"><i class="fa fa-envelope"></i></a></li>
+                                </ul>
+                            </div>
+                            <a href="#" title="" class="view-more-pro">View Profile</a>
+                        </div><!--company_profile_info end-->
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="company_profile_info">
+                            <div class="company-up-info">
+                                <img src="images/resources/博客园.png" alt="">
+                                <h3>博客园</h3>
+                                <h4>Establish Feb, 2004</h4>
+                                <ul>
+                                    <li><a href="https://www.cnblogs.com/" title="" class="follow">GO</a></li>
+                                    <li><a href="#" title="" class="message-us"><i class="fa fa-envelope"></i></a></li>
+                                </ul>
+                            </div>
+                            <a href="#" title="" class="view-more-pro">View Profile</a>
+                        </div><!--company_profile_info end-->
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="company_profile_info">
+                            <div class="company-up-info">
+                                <img src="images/resources/掘金.png" alt="">
+                                <h3>掘金</h3>
+                                <h4>Establish Feb, 2004</h4>
+                                <ul>
+                                    <li><a href="https://juejin.cn/" title="" class="follow">GO</a></li>
+                                    <li><a href="#" title="" class="message-us"><i class="fa fa-envelope"></i></a></li>
+                                </ul>
+                            </div>
+                            <a href="#" title="" class="view-more-pro">View Profile</a>
+                        </div><!--company_profile_info end-->
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="company_profile_info">
+                            <div class="company-up-info">
+                                <img src="images/resources/简书.png" alt="">
+                                <h3>简书</h3>
+                                <h4>Establish Feb, 2004</h4>
+                                <ul>
+                                    <li><a href="https://www.jianshu.com/" title="" class="follow">GO</a></li>
+                                    <li><a href="#" title="" class="message-us"><i class="fa fa-envelope"></i></a></li>
+                                </ul>
+                            </div>
+                            <a href="#" title="" class="view-more-pro">View Profile</a>
+                        </div><!--company_profile_info end-->
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="company_profile_info">
+                            <div class="company-up-info">
+                                <img src="images/resources/segmentfault.png" alt="">
+                                <h3>segmentfault</h3>
+                                <h4>Establish Feb, 2004</h4>
+                                <ul>
+                                    <li><a href="https://segmentfault.com/" title="" class="follow">GO</a></li>
+                                    <li><a href="#" title="" class="message-us"><i class="fa fa-envelope"></i></a></li>
+                                </ul>
+                            </div>
+                            <a href="#" title="" class="view-more-pro">View Profile</a>
+                        </div><!--company_profile_info end-->
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="company_profile_info">
+                            <div class="company-up-info">
+                                <img src="images/resources/博客.png" alt="">
+                                <h3>极客时间</h3>
+                                <h4>Establish Feb, 2004</h4>
+                                <ul>
+                                    <li><a href="https://time.geekbang.org/" title="" class="follow">GO</a></li>
+                                    <li><a href="#" title="" class="message-us"><i class="fa fa-envelope"></i></a></li>
+                                </ul>
+                            </div>
+                            <a href="#" title="" class="view-more-pro">View Profile</a>
+                        </div><!--company_profile_info end-->
+                    </div>
+
+                </div>
+            </div><!--companies-list end-->
+        </div>
+    </section><!--companies-info end-->
+    <footer th:insert="~{commmon/footer::footer}"></footer>
+</div><!--theme-layout end-->
+
+<script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/popper.js}"></script>
+<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/jquery.mCustomScrollbar.js}"></script>
+<script type="text/javascript" th:src="@{/lib/slick/slick.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/scrollbar.js}"></script>
+<script type="text/javascript" th:src="@{/js/script.js}"></script>
+</body>
+</html>

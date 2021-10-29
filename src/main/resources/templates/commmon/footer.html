@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:fragment="footer">
+    <div class="footy-sec mn no-margin">
+        <div class="container">
+            <ul>
+
+                <li><a th:href="@{/help}" title="">帮助中心</a></li>
+                <li><a th:href="@{/privacy}" title="">隐私协议</a></li>
+                <li><a th:href="@{/specification}" title="">使用规范</a></li>
+                <li><a th:href="@{/cookieProtocol}" title="">Cookies 协议</a></li>
+                <li><a th:href="@{/copyright}" title="">版权声明</a></li>
+                <li><a href="#" title="">湘ICP备2021008176号</a></li>
+
+            </ul>
+            <p><img th:src="@{/images/copy-icon2.png}" alt="">Copyright 2021</p>
+            <img class="fl-rgt" th:src="@{/images/logo2.png}" alt="">
+        </div>
+    </div>
+</div>
+</body>
+</html>

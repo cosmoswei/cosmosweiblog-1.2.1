@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wei.cosmosweiblog.mapper.DevLogDao">
+
+    <resultMap type="com.wei.cosmosweiblog.pojo.DevLog" id="DevLogMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="title" column="title" jdbcType="VARCHAR"/>
+        <result property="content" column="content" jdbcType="VARCHAR"/>
+        <result property="updateTime" column="update_time" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--根据id查询单个文章-->
+    <select id="getDevLogById" resultMap="DevLogMap">
+        select id,
+               title,
+               content,
+               update_time
+        from Blog.blog_devLog
+        where id = #{id}
+    </select>
+
+    <select id="searchDevLogByTitle" resultMap="DevLogMap">
+        select id,
+               title,
+               content,
+               update_time
+        from Blog.blog_devLog
+        where title like
+              concat("%", #{title}, "%")
+    </select>
+
+    <!--查询所有文章-->
+    <select id="queryAllDevLog" resultMap="DevLogMap">
+        select
+        id, title, content,update_time
+        from Blog.blog_devLog
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="title != null and title != ''">
+                and title = #{title}
+            </if>
+            <if test="content != null and content != ''">
+                and content = #{content}
+            </if>
+            <if test="update_time != null and update_time != ''">
+                and update_time = #{update_time}
+            </if>
+        </where>
+    </select>
+
+    <!--添加文章-->
+    <insert id="addDevLog" keyProperty="id" useGeneratedKeys="true">
+        insert into Blog.blog_devLog(title, content)
+        values (#{title}, #{content})
+    </insert>
+
+
+    <!--通过id删除文章-->
+    <delete id="deleteDevLogById">
+        delete
+        from Blog.blog_devLog
+        where id = #{id}
+    </delete>
+
+</mapper>

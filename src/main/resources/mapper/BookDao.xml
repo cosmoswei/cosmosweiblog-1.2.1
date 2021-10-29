@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wei.cosmosweiblog.mapper.BookDao">
+
+    <resultMap type="com.wei.cosmosweiblog.pojo.Book" id="BookMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="title" column="title" jdbcType="VARCHAR"/>
+        <result property="author" column="author" jdbcType="VARCHAR"/>
+        <result property="press" column="press" jdbcType="NUMERIC"/>
+        <result property="ISBN" column="ISBN" jdbcType="TIMESTAMP"/>
+        <result property="path" column="path" jdbcType="INTEGER"/>
+    </resultMap>
+
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="BookMap">
+        select id, title, author, press, ISBN, path
+        from Blog.blog_book
+        where id = #{id}
+    </select>
+
+    <select id="searchBookByTitle" resultMap="BookMap">
+        select id, title, author, press, ISBN, path
+        from Blog.blog_book
+        where title like
+              concat("%", #{title}, "%")
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="BookMap">
+        select id, title, author, press, ISBN, path
+        from Blog.blog_book limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="BookMap">
+        select
+        id, title, author, press, ISBN, path
+        from Blog.blog_book
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="title != null and title != ''">
+                and title = #{title}
+            </if>
+            <if test="author != null and author != ''">
+                and author = #{author}
+            </if>
+            <if test="ISBN != null">
+                and ISBN = #{ISBN}
+            </if>
+            <if test="press != null">
+                and press = #{press}
+            </if>
+            <if test="path != null">
+                and path = #{path}
+            </if>
+
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into Blog.blog_book (title, author, press, ISBN, path)
+        values (#{title}, #{author}, #{press}, #{ISBN}, #{path})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update Blog.blog_book
+        <set>
+            <if test="title != null and title != ''">
+                title = #{title},
+            </if>
+            <if test="author != null and author != ''">
+                author = #{author},
+            </if>
+            <if test="press != null">
+                press = #{press},
+            </if>
+            <if test="ISBN != null">
+                ISBN = #{ISBN},
+            </if>
+            <if test="path != null">
+                path = #{path},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete
+        from Blog.blog_book
+        where id = #{id}
+    </delete>
+
+</mapper>

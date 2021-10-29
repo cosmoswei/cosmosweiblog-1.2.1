@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>书籍</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+
+    <link rel="shortcut icon" th:href="@{/images/wd-logo.png}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/animate.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/line-awesome.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/line-awesome-font-awesome.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/font-awesome.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/jquery.mCustomScrollbar.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/lib/slick/slick.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/lib/slick/slick-theme.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/responsive.css}">
+</head>
+
+<body>
+
+<div class="wrapper">
+
+    <header th:insert="~{commmon/topbar::topbar}"></header>
+
+    <div class="search-sec">
+        <div class="container">
+            <div class="search-box">
+                <form th:action="@{/book/toSearchBook}">
+                    <input type="text" name="search" placeholder="书籍...">
+                    <button type="submit">搜索</button>
+                </form>
+            </div><!--search-box end-->
+        </div>
+    </div>
+
+    <main>
+        <div class="main-section">
+            <div class="container">
+                <div class="main-section-data">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="filter-secs">
+                                <div class="filter-heading">
+                                    <h3>条件过滤</h3>
+                                    <a href="#" title="">Clear</a>
+                                </div><!--filter-heading end-->
+                                <div class="paddy">
+                                    <div class="filter-dd">
+                                        <div class="filter-ttl">
+                                            <h3>ISBN</h3>
+                                            <a href="#" title="">Clear</a>
+                                        </div>
+                                        <form>
+                                            <input type="text" name="search-skills" placeholder="Search ISBN">
+                                        </form>
+                                    </div>
+                                    <div class="filter-dd">
+                                        <div class="filter-ttl">
+                                            <h3>出版社</h3>
+                                            <a href="#" title="">Clear</a>
+                                        </div>
+                                        <ul class="avail-checks">
+                                            <li>
+                                                <input type="radio" name="cc" id="c1">
+                                                <label for="c1">
+                                                    <span></span>
+                                                </label>
+                                                <small>机械工业出版社</small>
+                                            </li>
+                                            <li>
+                                                <input type="radio" name="cc" id="c2">
+                                                <label for="c2">
+                                                    <span></span>
+                                                </label>
+                                                <small>電子工业出版社</small>
+                                            </li>
+                                            <li>
+                                                <input type="radio" name="cc" id="c3">
+                                                <label for="c3">
+                                                    <span></span>
+                                                </label>
+                                                <small>其他出版社</small>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="filter-dd">
+                                        <div class="filter-ttl">
+                                            <h3>分类</h3>
+                                            <a href="#" title="">Clear</a>
+                                        </div>
+                                        <form class="job-tp">
+                                            <select>
+                                                <option>前端</option>
+                                                <option>后端</option>
+                                                <option>运维</option>
+                                            </select>
+                                            <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                                        </form>
+                                    </div>
+                                    <div class="filter-dd">
+                                        <div class="filter-ttl">
+                                            <h3>标签</h3>
+                                            <a href="#" title="">Clear</a>
+                                        </div>
+                                        <form class="job-tp">
+                                            <select>
+                                                <option>Java</option>
+                                                <option>高并发</option>
+                                                <option>Linux</option>
+                                                <option>数据库</option>
+                                            </select>
+                                            <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                                        </form>
+                                    </div>
+                                    <div class="filter-dd">
+                                        <div class="filter-ttl">
+                                            <h3>出版时间</h3>
+                                            <a href="#" title="">Clear</a>
+                                        </div>
+                                        <form class="job-tp">
+                                            <select>
+                                                <option>1900-2100</option>
+                                                <option>1999-2010</option>
+                                                <option>2011-2015</option>
+                                                <option>2016-2020</option>
+                                                <option>2021-2025</option>
+                                            </select>
+                                            <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div><!--filter-secs end-->
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="main-ws-sec">
+                                <div class="posts-section">
+                                    <div class="post-bar" th:each="book:${bookList}">
+                                        <div class="post_topbar">
+                                            <div class="usy-dt">
+
+                                                <div class="usy-name">
+                                                    <h3 th:text="${book.title}"></h3>
+                                                    <span th:text="'ISBN:'+${book.ISBN}"></span>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="epi-sec">
+                                            <ul class="descp">
+                                                <li><img th:src="@{/images/icon8.png}" alt=""
+                                                         th:text="${book.author}"><span></span></li>
+                                                <li><img th:src="@{/images/icon9.png}" alt=""
+                                                         th:text="${book.press}"><span></span></li>
+                                            </ul>
+                                            <ul class="bk-links">
+                                                <li><a th:href="@{'/book/download/'+${book.id}}" title=""
+                                                       class="bid_now">下载</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="job_descp">
+                                            <ul class="job-dt">
+                                            </ul>
+                                            <p>概述概述概述概述概述概述概述概述概述概述概述概述概述概述概述概述概述概述概述概述概述概述概述概述概述概述概述概述概述概述概述<a href="#"
+                                                                                                                title="">view
+                                                more</a></p>
+                                            <ul class="skill-tags">
+                                                <li><a href="#" title="">Java</a></li>
+                                                <li><a href="#" title="">后端</a></li>
+                                                <li><a href="#" title="">高并发</a></li>
+                                                <li><a href="#" title="">数据库</a></li>
+                                                <li><a href="#" title="">JVM</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="job-status-bar">
+                                            <ul class="like-com">
+                                                <li>
+                                                    <a href="#" title="" class="active"><i class="la la-heart"></i> Like</a>
+                                                    <img th:src="@{/images/liked-img.png}" alt="">
+                                                    <span>25</span>
+                                                </li>
+                                                <li><a href="#" title="" class="com"><img th:src="@{/images/com.png}"
+                                                                                          alt=""> Comment </a></li>
+                                            </ul>
+                                            <a><i class="la la-eye"></i>Views 50</a>
+                                        </div>
+                                    </div><!--post-bar end-->
+
+
+                                    <div class="process-comm">
+                                        <a href="#" title=""><img src="images/process-icon.png" alt=""></a>
+                                    </div><!--process-comm end-->
+                                </div><!--posts-section end-->
+                            </div><!--main-ws-sec end-->
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="right-sidebar">
+                                <div class="widget widget-about">
+                                    <a th:href="@{/toLogin}"><img th:src="@{/images/wd-logo.png}" alt=""></a>
+                                    <span style="color: #e44d3a">书籍是人类进步的阶梯</span>
+                                </div><!--widget-about end-->
+                                <div class="widget widget-jobs">
+                                    <div class="sd-title">
+                                        <h3>书籍推荐</h3>
+                                    </div>
+                                    <div class="jobs-list">
+                                        <div class="job-info">
+                                            <div class="job-details">
+                                                <h3>深入理解计算机系统</h3>
+                                                <p>一本真的牛逼的计算机书！</p>
+                                            </div>
+                                        </div><!--job-info end-->
+                                        <div class="job-info">
+                                            <div class="job-details">
+                                                <h3>计算机网络</h3>
+                                                <p>二本真的牛逼的计算机书！</p>
+                                            </div>
+                                        </div><!--job-info end-->
+                                        <div class="job-info">
+                                            <div class="job-details">
+                                                <h3>计算机组成原理</h3>
+                                                <p>三本真的牛逼的计算机书！</p>
+                                            </div>
+                                        </div><!--job-info end-->
+                                        <div class="job-info">
+                                            <div class="job-details">
+                                                <h3>计算机操作系统</h3>
+                                                <p>四本真的牛逼的计算机书！</p>
+                                            </div>
+                                        </div><!--job-info end-->
+                                        <div class="job-info">
+                                            <div class="job-details">
+                                                <h3>计算机程序的构造和解释</h3>
+                                                <p>五本真的牛逼的计算机书！</p>
+                                            </div>
+                                        </div><!--job-info end-->
+                                        <div class="job-info">
+                                            <div class="job-details">
+                                                <h3>计算机体系结构</h3>
+                                                <p>六本真的牛逼的计算机书！</p>
+                                            </div>
+                                        </div><!--job-info end-->
+                                        <div class="job-info">
+                                            <div class="job-details">
+                                                <h3>设计模式</h3>
+                                                <p>七本真的牛逼的计算机书！</p>
+                                            </div>
+                                        </div><!--job-info end-->
+                                    </div><!--jobs-list end-->
+                                </div><!--widget-jobs end-->
+                                <div class="widget widget-jobs">
+                                    <div class="sd-title">
+                                        <h3>最多下载</h3>
+                                    </div>
+                                    <div class="jobs-list">
+                                        <div class="job-info">
+                                            <div class="job-details">
+                                                <h3>深入理解Java虚拟机</h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
+                                            </div>
+                                            <div class="hr-rate">
+                                                <span>2048</span>
+                                            </div>
+                                        </div><!--job-info end-->
+                                        <div class="job-info">
+                                            <div class="job-details">
+                                                <h3>凤凰架构</h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
+                                            </div>
+                                            <div class="hr-rate">
+                                                <span>1024</span>
+                                            </div>
+                                        </div><!--job-info end-->
+                                        <div class="job-info">
+                                            <div class="job-details">
+                                                <h3>现代操作系统</h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
+                                            </div>
+                                            <div class="hr-rate">
+                                                <span>996</span>
+                                            </div>
+                                        </div><!--job-info end-->
+                                    </div><!--jobs-list end-->
+                                </div><!--widget-jobs end-->
+                            </div><!--right-sidebar end-->
+                        </div>
+                    </div>
+                </div><!-- main-section-data end-->
+            </div>
+        </div>
+    </main>
+
+    <footer th:insert="~{commmon/footer::footer}"></footer>
+
+    <div class="post-popup pst-pj">
+        <div class="post-project">
+            <h3>Post a project</h3>
+            <div class="post-project-fields">
+                <form>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <input type="text" name="title" placeholder="Title">
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="inp-field">
+                                <select>
+                                    <option>Category</option>
+                                    <option>Category 1</option>
+                                    <option>Category 2</option>
+                                    <option>Category 3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <input type="text" name="skills" placeholder="Skills">
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="price-sec">
+                                <div class="price-br">
+                                    <input type="text" name="price1" placeholder="Price">
+                                    <i class="la la-dollar"></i>
+                                </div>
+                                <span>To</span>
+                                <div class="price-br">
+                                    <input type="text" name="price1" placeholder="Price">
+                                    <i class="la la-dollar"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <textarea name="description" placeholder="Description"></textarea>
+                        </div>
+                        <div class="col-lg-12">
+                            <ul>
+                                <li>
+                                    <button class="active" type="submit" value="post">Post</button>
+                                </li>
+                                <li><a href="#" title="">Cancel</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </form>
+            </div><!--post-project-fields end-->
+            <a href="#" title=""><i class="la la-times-circle-o"></i></a>
+        </div><!--post-project end-->
+    </div><!--post-project-popup end-->
+
+    <div class="post-popup job_post">
+        <div class="post-project">
+            <h3>Post a job</h3>
+            <div class="post-project-fields">
+                <form>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <input type="text" name="title" placeholder="Title">
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="inp-field">
+                                <select>
+                                    <option>Category</option>
+                                    <option>Category 1</option>
+                                    <option>Category 2</option>
+                                    <option>Category 3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <input type="text" name="skills" placeholder="Skills">
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="price-br">
+                                <input type="text" name="price1" placeholder="Price">
+                                <i class="la la-dollar"></i>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="inp-field">
+                                <select>
+                                    <option>Full Time</option>
+                                    <option>Half time</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <textarea name="description" placeholder="Description"></textarea>
+                        </div>
+                        <div class="col-lg-12">
+                            <ul>
+                                <li>
+                                    <button class="active" type="submit" value="post">Post</button>
+                                </li>
+                                <li><a href="#" title="">Cancel</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </form>
+            </div><!--post-project-fields end-->
+            <a href="#" title=""><i class="la la-times-circle-o"></i></a>
+        </div><!--post-project end-->
+    </div><!--post-project-popup end-->
+
+
+</div><!--theme-layout end-->
+
+
+<script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/popper.js}"></script>
+<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/jquery.mCustomScrollbar.js}"></script>
+<script type="text/javascript" th:src="@{/lib/slick/slick.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/scrollbar.js}"></script>
+<script type="text/javascript" th:src="@{/js/script.js}"></script>
+
+</body>
+</html>

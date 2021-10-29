@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta charset="UTF-8">
+    <title>博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+
+
+    <link rel="shortcut icon" th:href="@{/images/wd-logo.png}">
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/animate.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/line-awesome.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/line-awesome-font-awesome.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/font-awesome.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/jquery.mCustomScrollbar.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/lib/slick/slick.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/lib/slick/slick-theme.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/responsive.css}">
+</head>
+
+
+<body>
+
+
+<div class="wrapper">
+
+    <header th:insert="~{commmon/topbar::topbar}"></header>
+
+    <div class="search-sec">
+        <div class="container">
+            <div class="search-box">
+                <form th:action="@{/blog/toSearchBlog}">
+                    <input type="text" name="search" placeholder="博客...">
+                    <button type="submit">搜索</button>
+                </form>
+            </div><!--search-box end-->
+        </div>
+    </div><!--search-sec end-->
+
+    <section class="forum-page">
+        <div class="container">
+            <div class="forum-questions-sec">
+                <div class="row">
+                    <div class="col-lg-8">
+
+                        <div class="forum-questions">
+                            <div class="usr-question" th:each="blog:${blogList}">
+                                <div class="usr_img">
+                                </div>
+                                <div class="usr_quest">
+                                    <h3><a th:href="@{'/blog/toBlog/'+${blog.id}}"
+                                           th:text="${blog.id}+' '+${blog.title}"></a></h3>
+                                    <p th:text="'作者：'+${blog.author}"></p>
+                                    <p th:text="'发布时间：'+${blog.updateTime}"></p>
+                                </div><!--usr_quest end-->
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="widget widget-user">
+                            <ul>
+                                <li>
+                                    <div class="suggestion-usd">
+                                        <img src="/images/resources/s12.png" alt="">
+                                        <div class="sgt-text">
+                                            <h4>SpringBoot</h4>
+                                            <span>宇宙伟</span>
+                                        </div>
+                                        <span><a th:href="@{/blog/toBlog/3}"><i class="la la-plus"></i></a></span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="suggestion-usd">
+                                        <img src="/images/resources/s13.png" alt="">
+                                        <div class="sgt-text">
+                                            <h4>SpringCloud</h4>
+                                            <span>宇宙伟</span>
+                                        </div>
+                                        <span><a th:href="@{/blog/toBlog/5}"><i class="la la-plus"></i></a></span>
+                                    </div>
+
+                                </li>
+                                <li>
+                                    <div class="suggestion-usd">
+                                        <img src="/images/resources/s14.png" alt="">
+                                        <div class="sgt-text">
+                                            <h4>Redis</h4>
+                                            <span>宇宙伟</span>
+                                        </div>
+                                        <span><a th:href="@{/blog/toBlog/47}"><i class="la la-plus"></i></a></span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="suggestion-usd">
+                                        <img src="/images/resources/s15.png" alt="">
+                                        <div class="sgt-text">
+                                            <h4>Vue</h4>
+                                            <span>宇宙伟</span>
+                                        </div>
+                                        <span><a th:href="@{/blog/toBlog/20}"><i class="la la-plus"></i></a></span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="suggestion-usd">
+                                        <img src="/images/resources/s16.png" alt="">
+                                        <div class="sgt-text">
+                                            <h4>Quartz</h4>
+                                            <span>宇宙伟</span>
+                                        </div>
+                                        <span><a th:href="@{/blog/toBlog/35}"><i class="la la-plus"></i></a></span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="suggestion-usd">
+                                        <img src="/images/resources/s17.png" alt="">
+                                        <div class="sgt-text">
+                                            <h4>Nginx</h4>
+                                            <span>宇宙伟</span>
+                                        </div>
+                                        <span><a th:href="@{/blog/toBlog/35}"><i class="la la-plus"></i></a></span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="suggestion-usd">
+                                        <img src="/images/resources/s18.png" alt="">
+                                        <div class="sgt-text">
+                                            <h4>Docker</h4>
+                                            <span>宇宙伟</span>
+                                        </div>
+                                        <span><a th:href="@{/blog/toBlog/23}"><i class="la la-plus"></i></a></span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="view-more">
+                                        <a th:href="@{/blog/toBlogList}" title="">View More</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div><!--widget-user end-->
+                    </div><!--侧边栏-->
+                </div>
+            </div><!--forum-questions-sec end-->
+        </div>
+    </section><!--主体-->
+
+    <footer th:insert="~{commmon/footer::footer}"></footer>
+
+
+</div>
+
+
+<script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/popper.js}"></script>
+<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/jquery.mCustomScrollbar.js}"></script>
+<script type="text/javascript" th:src="@{/lib/slick/slick.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/scrollbar.js}"></script>
+<script type="text/javascript" th:src="@{/js/script.js}"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wei.cosmosweiblog.mapper.BlogDao">
+
+    <resultMap type="com.wei.cosmosweiblog.pojo.Blog" id="BlogMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="author" column="author" jdbcType="VARCHAR"/>
+        <result property="title" column="title" jdbcType="VARCHAR"/>
+        <result property="content" column="content" jdbcType="VARCHAR"/>
+        <result property="updateTime" column="update_time" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--根据id查询单个文章-->
+    <select id="getBolgById" resultMap="BlogMap">
+        select id,
+               author,
+               title,
+               content,
+               update_time
+        from Blog.blog_blog
+        where id = #{id}
+    </select>
+
+    <!--根据书名搜索博客-->
+    <select id="searchBlogByTitle" resultMap="BlogMap">
+        select id,
+               author,
+               title,
+               content,
+               update_time
+        from Blog.blog_blog
+        where title like
+              concat("%", #{title}, "%")
+    </select>
+
+    <!--查询所有文章-->
+    <select id="queryAllBlog" resultMap="BlogMap">
+        select
+        id, author, title, content,update_time
+        from Blog.blog_blog
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="author != null and author != ''">
+                and author = #{author}
+            </if>
+            <if test="title != null and title != ''">
+                and title = #{title}
+            </if>
+            <if test="content != null and content != ''">
+                and content = #{content}
+            </if>
+            <if test="update_time != null and update_time != ''">
+                and update_time = #{update_time}
+            </if>
+        </where>
+    </select>
+
+    <!--添加文章-->
+    <insert id="addBlog" keyProperty="id" useGeneratedKeys="true">
+        insert into Blog.blog_blog(author, title, content)
+        values (#{author}, #{title}, #{content})
+    </insert>
+
+
+    <!--通过id删除文章-->
+    <delete id="deleteBlogById">
+        delete
+        from Blog.blog_blog
+        where id = #{id}
+    </delete>
+
+</mapper>
